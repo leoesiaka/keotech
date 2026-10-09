@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects & Case Studies | Kaotech Design & Consultancy</title>
+  <meta name="description" content="Explore selected Kaotech engineering projects and current initiatives across fuel infrastructure, water treatment, tank farms, automation and digital engineering." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root{
+      --black:#06111f;--black-2:#0a1627;--black-3:#0f1e32;
+      --blue-dark:#06245a;--blue-deep:#073071;--blue:#087fe8;--blue-2:#1598f5;--sky:#48b9ff;--sky-soft:#bde8ff;
+      --light-blue:#e9f7ff;--light-blue-2:#f5fbff;--white:#fff;--text:#17263a;--muted:#68788d;--line:#dce8f2;
+      --shadow-sm:0 12px 30px rgba(6,17,31,.06);--shadow-md:0 20px 55px rgba(6,17,31,.10);--shadow-lg:0 28px 80px rgba(6,17,31,.16);
+      --radius-sm:14px;--radius-md:22px;--radius-lg:30px;--container:1240px;--transition:all .35s ease;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}
+    body{font-family:"DM Sans",sans-serif;color:var(--text);background:var(--white);line-height:1.7;overflow-x:hidden}body.menu-open{overflow:hidden}
+    img{display:block;width:100%;height:auto}a{text-decoration:none;color:inherit}button,input,textarea,select{font:inherit}button{border:0;background:none;cursor:pointer}
+    .container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}.section{padding:112px 0}.section-sm{padding:82px 0}
+    .section-kicker{display:inline-flex;align-items:center;gap:10px;color:var(--blue);font-size:.76rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    .section-kicker::before{content:"";width:32px;height:2px;background:var(--blue)}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:52px}.section-intro{max-width:750px}
+    .section-intro h2,.section-title h2{margin-top:16px;color:var(--black);font-family:"Manrope",sans-serif;font-size:clamp(2.4rem,5vw,4.15rem);line-height:1.03;letter-spacing:-.045em}
+    .section-intro p,.section-title p{margin-top:20px;max-width:720px;color:var(--muted);font-size:1.04rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:0 24px;border-radius:999px;font-size:.92rem;font-weight:800;transition:var(--transition);white-space:nowrap}
+    .btn i{font-size:.86rem;transition:transform .3s ease}.btn:hover i{transform:translateX(4px)}
+    .btn-primary{background:var(--blue);color:var(--white);box-shadow:0 14px 30px rgba(8,127,232,.22)}
+    .btn-primary:hover{background:var(--blue-2);transform:translateY(-2px);box-shadow:0 18px 34px rgba(8,127,232,.28)}
+    .btn-outline{border:1px solid var(--line);color:var(--black);background:var(--white)}
+    .btn-outline:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+    .btn-outline-dark{border:1px solid rgba(255,255,255,.24);color:var(--white);background:rgba(255,255,255,.06)}
+    .btn-outline-dark:hover{background:var(--white);color:var(--black);border-color:var(--white);transform:translateY(-2px)}
+
+    /* NAVBAR — matched to the Services page */
+    .navbar{position:absolute;top:0;left:0;width:100%;z-index:60;padding:24px 0}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .brand{display:flex;align-items:center;gap:11px;color:var(--white);transition:var(--transition);flex-shrink:0}
+    .brand-mark{width:42px;height:42px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);border-radius:11px;font-family:"Manrope",sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.04em}
+    .brand-text strong{display:block;font-family:"Manrope",sans-serif;font-size:1rem;line-height:1;letter-spacing:.06em}
+    .brand-text span{display:block;margin-top:3px;opacity:.7;font-size:.63rem;text-transform:uppercase;letter-spacing:.13em}
+    .navbar .brand{display:inline-flex;align-items:center;gap:13px;position:relative;z-index:120}
+    .navbar .brand-mark{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);backdrop-filter:blur(14px);color:var(--white);font-size:18px}
+    .navbar .brand-copy{display:flex;flex-direction:column;line-height:1}
+    .navbar .brand-name{color:var(--white);font-family:Manrope,sans-serif;font-size:18px;font-weight:800;letter-spacing:.05em}
+    .navbar .brand-sub{color:rgba(255,255,255,.7);font-size:9px;font-weight:700;letter-spacing:.14em;margin-top:7px;text-transform:uppercase;opacity:1}
+    .nav-links{display:flex;align-items:center;gap:9px;margin-left:auto}
+    .nav-links a{color:rgba(255,255,255,.9);font-size:14px;font-weight:600;padding:10px 15px;border:1px solid transparent;border-radius:999px;transition:var(--transition)}
+    .nav-links a:hover,.nav-links a.active{color:var(--white);border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08)}
+    .navbar .nav-cta{min-height:46px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 20px;border-radius:999px;background:var(--blue);color:var(--white);font-size:13px;font-weight:800;transition:var(--transition);box-shadow:none}
+    .navbar .nav-cta:hover{background:var(--blue-2);transform:translateY(-2px)}
+    .nav-toggle{display:none;width:48px;height:48px;align-items:center;justify-content:center;flex-direction:column;gap:5px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);backdrop-filter:blur(12px);color:var(--white);z-index:120}
+    .nav-toggle span{width:22px;height:2px;border-radius:999px;background:var(--white)}
+    .menu-overlay{position:fixed;inset:0;z-index:90;opacity:0;visibility:hidden;background:rgba(1,10,22,.7);backdrop-filter:blur(5px);transition:opacity .35s ease,visibility .35s ease}
+    .menu-overlay.open{opacity:1;visibility:visible}
+    .mobile-menu{position:fixed;top:0;right:0;width:min(370px,88vw);height:100vh;height:100dvh;z-index:100;background:var(--white);transform:translateX(100%);transition:transform .45s cubic-bezier(.77,0,.18,1);box-shadow:-24px 0 70px rgba(0,0,0,.18);padding:28px 24px 30px;display:flex;flex-direction:column}
+    .mobile-menu.open{transform:translateX(0)}
+    .mobile-menu-top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+    .mobile-brand{display:flex;align-items:center;gap:11px}
+    .mobile-brand-mark{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:var(--blue-dark);color:var(--white)}
+    .mobile-brand strong{display:block;color:var(--blue-dark);font-family:Manrope,sans-serif;font-size:16px}
+    .mobile-brand small{display:block;color:var(--muted);font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+    .mobile-close{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;color:var(--blue-dark);background:var(--light-blue);font-size:18px;transition:var(--transition)}
+    .mobile-close:hover{background:var(--sky-soft);transform:rotate(90deg)}
+    .mobile-links{display:flex;flex-direction:column;gap:8px;padding:30px 0;overflow-y:auto}
+    .mobile-links a{width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 17px;border:1px solid var(--line);border-radius:14px;color:var(--blue-dark);font-size:15px;font-weight:700;transition:var(--transition)}
+    .mobile-links a i{color:var(--blue);font-size:12px}
+    .mobile-links a:hover,.mobile-links a.active{background:var(--light-blue);border-color:var(--sky-soft);transform:translateX(-3px)}
+    .mobile-menu-bottom{margin-top:auto;padding-top:20px;border-top:1px solid var(--line)}
+    .mobile-menu-bottom p{color:var(--muted);font-size:12px;line-height:1.65;margin-bottom:15px}
+    .mobile-menu-bottom a{width:100%;min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:13px;background:var(--blue);color:var(--white);font-size:13px;font-weight:800}
+
+    /* HERO — Services page layout, with the original Projects background */
+    .services-hero{min-height:760px;position:relative;overflow:hidden;background:var(--black);color:var(--white)}
+    .services-hero-bg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,20,44,.98) 0%,rgba(5,35,82,.93) 44%,rgba(8,61,119,.66) 76%,rgba(8,127,232,.20) 100%),url("https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?auto=format&fit=crop&w=2200&q=88") center/cover no-repeat}
+    .services-hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,16,35,.22),rgba(4,16,35,.25) 35%,rgba(4,16,35,.92) 100%)}
+    .services-hero-inner{width:min(1240px,calc(100% - 48px));min-height:760px;margin:0 auto;position:relative;z-index:3;display:flex;align-items:flex-start}
+    .services-hero-copy{width:min(880px,100%);padding:145px 0 70px;padding-right:0}
+    .services-hero-kicker{display:inline-flex;align-items:center;gap:12px;color:var(--sky-soft);font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;margin-bottom:20px}
+    .services-hero-kicker span{width:45px;height:2px;background:var(--sky);flex:0 0 45px}
+    .services-hero h1{font-family:Manrope,sans-serif;color:var(--white);font-size:clamp(50px,7vw,96px);line-height:.95;letter-spacing:-.065em;max-width:900px;margin-bottom:21px}
+    .services-hero h1 span{color:var(--sky)}
+    .services-hero-intro{max-width:730px;color:rgba(255,255,255,.76);font-size:clamp(16px,1.9vw,21px);line-height:1.6;margin-bottom:28px}
+    .services-hero-actions{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+    .btn-outline-light{color:var(--white);border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.06);backdrop-filter:blur(12px)}
+    .btn-outline-light:hover{background:var(--white);color:var(--black);border-color:var(--white);transform:translateY(-2px)}
+    .services-hero-actions .btn{font-size:13px;gap:10px}
+
+    /* PORTFOLIO INTRO */
+    .portfolio-intro{background:var(--white)}.intro-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:70px;align-items:start}.intro-title{position:sticky;top:110px}
+    .intro-title h2{margin-top:17px;color:var(--black);font-family:"Manrope",sans-serif;font-size:clamp(2.5rem,5vw,4.1rem);line-height:1.03;letter-spacing:-.05em}
+    .intro-copy p{color:var(--muted);font-size:1.02rem;margin-bottom:20px}.intro-copy p:last-child{margin-bottom:0}
+
+    /* FILTER BAR */
+    .project-filter-section{padding-top:0;background:var(--white)}.filter-shell{padding:10px;border:1px solid var(--line);background:var(--light-blue-2);border-radius:18px;display:flex;flex-wrap:wrap;gap:9px}
+    .filter-btn{padding:12px 18px;border-radius:12px;color:var(--muted);font-size:.84rem;font-weight:800;transition:var(--transition)}.filter-btn:hover{color:var(--blue);background:var(--white)}
+    .filter-btn.active{color:var(--white);background:var(--blue-dark);box-shadow:0 8px 18px rgba(6,36,90,.14)}
+
+    /* PROJECT GRID */
+    .projects-section{background:var(--light-blue-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.projects-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+    .project-card{position:relative;overflow:hidden;border-radius:24px;min-height:575px;background:var(--black);box-shadow:var(--shadow-sm);transition:var(--transition);cursor:pointer}.project-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+    .project-card.featured{grid-column:span 7}.project-card.secondary{grid-column:span 5;min-height:575px}.project-card.hidden{display:none}
+    .project-media{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.01);transition:transform .65s ease}.project-card:hover .project-media{transform:scale(1.065)}
+    .project-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,17,31,.03) 0%,rgba(6,17,31,.20) 36%,rgba(6,17,31,.95) 100%)}
+    .project-card:nth-child(1) .project-media{background-image:url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2200&q=85")}
+    .project-card:nth-child(2) .project-media{background-image:url("https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=2200&q=85")}
+    .project-card:nth-child(3) .project-media{background-image:url("https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=1500&q=88")}
+    .project-content{position:absolute;left:0;right:0;bottom:0;padding:34px;z-index:2}.project-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.20);border-radius:999px;background:rgba(255,255,255,.09);backdrop-filter:blur(8px);color:var(--sky-soft);font-size:.69rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
+    .project-content h3{max-width:620px;margin-top:16px;color:var(--white);font-family:"Manrope",sans-serif;font-size:clamp(1.85rem,3.2vw,3rem);line-height:1.05;letter-spacing:-.045em}.project-card.secondary .project-content h3{font-size:clamp(1.55rem,2.7vw,2.35rem)}
+    .project-content>p{max-width:650px;margin-top:13px;color:rgba(255,255,255,.76);font-size:.9rem}.project-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+    .project-fact{display:inline-flex;align-items:center;gap:7px;min-height:37px;padding:0 11px;border:1px solid rgba(255,255,255,.15);border-radius:10px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.78);font-size:.72rem;font-weight:700}.project-fact i{color:var(--sky);font-size:.7rem}
+
+    /* DETAILED CASE STUDIES */
+    .case-studies{background:var(--white)}.case-study{padding:48px 0;border-bottom:1px solid var(--line)}.case-study:first-child{padding-top:0}.case-study:last-child{padding-bottom:0;border-bottom:0}
+    .case-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:58px;align-items:start}.case-study:nth-child(even) .case-grid{grid-template-columns:1.05fr 1fr}.case-study:nth-child(even) .case-visual{order:2}
+    .case-visual{position:relative;overflow:hidden;border-radius:24px;min-height:470px;background:var(--black);box-shadow:var(--shadow-md)}.case-visual-image{position:absolute;inset:0;background-size:cover;background-position:center}
+    .case-study:nth-child(1) .case-visual-image{background-image:url("https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=2200&q=85")}
+    .case-study:nth-child(2) .case-visual-image{background-image:url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1500&q=88")}
+    .case-study:nth-child(3) .case-visual-image{background-image:url("https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=1500&q=88")}
+    .case-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,36,90,.05),rgba(6,17,31,.82))}
+    .case-number{position:absolute;top:24px;left:24px;z-index:2;color:rgba(255,255,255,.8);font-family:"Manrope",sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    .case-visual-bottom{position:absolute;left:24px;right:24px;bottom:24px;z-index:2;display:flex;justify-content:space-between;gap:18px;align-items:end}
+    .case-visual-title{color:var(--white);font-family:"Manrope",sans-serif;font-size:1.35rem;font-weight:800;letter-spacing:-.03em}
+    .case-visual-location{display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,.76);font-size:.78rem;font-weight:600;text-align:right}
+    .case-content{padding-top:8px}.case-meta{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}
+    .case-meta span{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid var(--line);border-radius:999px;color:var(--blue-dark);background:var(--light-blue-2);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .case-content h3{color:var(--black);font-family:"Manrope",sans-serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1.03;letter-spacing:-.05em}.case-lead{margin-top:18px;color:var(--muted);font-size:1rem}
+    .case-details{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:30px}.case-detail{padding:19px;border:1px solid var(--line);border-radius:16px;background:var(--white)}
+    .case-detail-label{display:block;margin-bottom:6px;color:var(--muted);font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em}.case-detail strong{color:var(--black);font-size:.92rem}
+    .case-highlight-box{margin-top:22px;padding:22px;border:1px solid #cce8fb;border-radius:18px;background:var(--light-blue)}
+    .case-highlight-box strong{display:block;color:var(--blue-dark);font-family:"Manrope",sans-serif;font-size:.88rem;text-transform:uppercase;letter-spacing:.09em}
+    .case-highlights{margin-top:13px;display:grid;gap:10px}.case-highlights div{display:flex;gap:10px;align-items:flex-start;color:var(--text);font-size:.86rem}.case-highlights i{margin-top:5px;color:var(--blue);font-size:.72rem}
+
+    /* CURRENT INITIATIVES */
+    .initiatives{position:relative;background:var(--black);overflow:hidden}.initiatives::before{content:"";position:absolute;width:500px;height:500px;top:-200px;right:-100px;border-radius:50%;background:radial-gradient(circle,rgba(21,152,245,.23),rgba(21,152,245,0) 68%)}
+    .initiatives::after{content:"";position:absolute;width:420px;height:420px;bottom:-210px;left:-180px;border-radius:50%;background:radial-gradient(circle,rgba(7,48,113,.34),rgba(7,48,113,0) 70%)}
+    .initiative-head{position:relative;z-index:2;max-width:780px;margin-bottom:52px}.initiative-head h2{margin-top:16px;color:var(--white);font-family:"Manrope",sans-serif;font-size:clamp(2.35rem,5vw,4.1rem);line-height:1.03;letter-spacing:-.05em}
+    .initiative-head p{margin-top:18px;color:rgba(255,255,255,.68);max-width:710px}.initiative-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .initiative-card{position:relative;overflow:hidden;min-height:455px;padding:34px;border:1px solid rgba(255,255,255,.11);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.02))}
+    .initiative-card::before{content:"";position:absolute;width:160px;height:160px;right:-55px;top:-55px;border-radius:50%;border:1px solid rgba(72,185,255,.16)}
+    .initiative-icon{width:58px;height:58px;display:grid;place-items:center;border-radius:16px;background:rgba(72,185,255,.12);color:var(--sky);font-size:1.2rem}
+    .initiative-label{display:inline-block;margin-top:28px;color:var(--sky-soft);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em}
+    .initiative-card h3{margin-top:10px;color:var(--white);font-family:"Manrope",sans-serif;font-size:clamp(1.7rem,3vw,2.55rem);line-height:1.05;letter-spacing:-.04em;max-width:520px}
+    .initiative-card p{margin-top:16px;max-width:520px;color:rgba(255,255,255,.68);font-size:.9rem}
+    .initiative-status{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:9px 12px;border:1px solid rgba(72,185,255,.2);border-radius:999px;color:var(--sky-soft);background:rgba(72,185,255,.07);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+    .initiative-status i{font-size:.48rem}.initiative-flow{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+    .initiative-flow span{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid rgba(255,255,255,.1);border-radius:10px;color:rgba(255,255,255,.72);font-size:.73rem;font-weight:700}.initiative-flow i{color:var(--sky)}
+
+    /* PROJECT METRICS */
+    .metrics-section{background:var(--light-blue-2);border-bottom:1px solid var(--line)}.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .metric-card{padding:29px 25px;border:1px solid var(--line);border-radius:20px;background:var(--white);transition:var(--transition)}
+    .metric-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm);border-color:#c3def0}.metric-icon{width:44px;height:44px;display:grid;place-items:center;margin-bottom:21px;border-radius:12px;background:var(--light-blue);color:var(--blue)}
+    .metric-card strong{display:block;color:var(--black);font-family:"Manrope",sans-serif;font-size:2.05rem;letter-spacing:-.05em;line-height:1}.metric-card span{display:block;margin-top:8px;color:var(--muted);font-size:.8rem;font-weight:600}
+
+    /* DELIVERY CONNECTION */
+    .delivery-connection{background:var(--white)}.delivery-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+    .delivery-copy h2{margin-top:15px;color:var(--black);font-family:"Manrope",sans-serif;font-size:clamp(2.3rem,5vw,4rem);line-height:1.03;letter-spacing:-.05em}
+    .delivery-copy p{margin-top:20px;max-width:610px;color:var(--muted);font-size:1rem}.delivery-path{position:relative;display:grid;gap:11px}
+    .delivery-path::before{content:"";position:absolute;left:25px;top:25px;bottom:25px;width:1px;background:var(--line)}
+    .delivery-item{position:relative;z-index:2;display:grid;grid-template-columns:50px 1fr;gap:16px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:15px;background:var(--white)}
+    .delivery-item-number{width:50px;height:50px;display:grid;place-items:center;border-radius:14px;color:var(--blue-dark);background:var(--light-blue);font-family:"Manrope",sans-serif;font-size:.8rem;font-weight:800}
+    .delivery-item strong{display:block;color:var(--black);font-size:.88rem}.delivery-item span{display:block;margin-top:2px;color:var(--muted);font-size:.75rem}
+
+    /* CTA */
+    .cta-section{position:relative;overflow:hidden;padding:92px 0;background:linear-gradient(110deg,rgba(6,36,90,.98),rgba(8,127,232,.94)),url("https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=2200&q=88") center/cover no-repeat}
+    .cta-section::before{content:"";position:absolute;width:560px;height:560px;top:-300px;right:-110px;border-radius:50%;border:1px solid rgba(255,255,255,.10)}
+    .cta-wrap{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:45px}.cta-copy{max-width:760px}
+    .cta-copy .section-kicker{color:var(--sky-soft)}.cta-copy .section-kicker::before{background:var(--sky)}
+    .cta-copy h2{margin-top:16px;color:var(--white);font-family:"Manrope",sans-serif;font-size:clamp(2.4rem,5vw,4.55rem);line-height:1.03;letter-spacing:-.055em}
+    .cta-copy p{margin-top:18px;color:rgba(255,255,255,.73);max-width:680px}.cta-actions{display:flex;flex-wrap:wrap;gap:12px;flex-shrink:0}
+
+    /* FOOTER */
+    .site-footer{padding:76px 0 25px;background:var(--black);color:rgba(255,255,255,.72)}.footer-top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:55px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.10)}
+    .footer-brand .brand{margin-bottom:20px}.footer-brand p{max-width:380px;color:rgba(255,255,255,.56);font-size:.84rem}
+    .footer-col h4{margin-bottom:18px;color:var(--white);font-family:"Manrope",sans-serif;font-size:.85rem;letter-spacing:.04em}
+    .footer-col a{display:block;margin:0 0 11px;color:rgba(255,255,255,.56);font-size:.8rem;transition:var(--transition)}.footer-col a:hover{color:var(--sky)}
+    .footer-contact{display:grid;gap:12px}.footer-contact div{display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.58);font-size:.8rem}.footer-contact i{margin-top:5px;color:var(--sky);font-size:.75rem}
+    .footer-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:23px;color:rgba(255,255,255,.4);font-size:.72rem}.footer-bottom-links{display:flex;gap:18px}.footer-bottom-links a:hover{color:var(--white)}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}.reveal.show{opacity:1;transform:translateY(0)}
+
+    /* RESPONSIVE */
+    @media (max-width:1100px){
+      .desktop-nav{gap:20px}.hero-grid{grid-template-columns:1fr;gap:0}
+      .project-card.featured{grid-column:span 12}.project-card.secondary{grid-column:span 6}.metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .delivery-wrap{grid-template-columns:1fr}.footer-top{grid-template-columns:1.3fr 1fr 1fr}.footer-col:last-child{grid-column:span 3}
+    }
+    @media (max-width:900px){
+      .section{padding:90px 0}.desktop-nav,.nav-cta{display:none}.mobile-toggle{display:flex}
+      .page-hero{min-height:800px}.hero-grid{padding:125px 0 80px;gap:30px}
+      .intro-grid{grid-template-columns:1fr;gap:40px}.intro-title{position:static}.section-head{flex-direction:column;align-items:flex-start}
+      .case-grid,.case-study:nth-child(even) .case-grid{grid-template-columns:1fr}.case-study:nth-child(even) .case-visual{order:0}
+      .initiative-grid{grid-template-columns:1fr}.cta-wrap{flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width:700px){
+      .container{width:min(var(--container),calc(100% - 30px))}.nav-wrap{width:calc(100% - 28px)}.site-header{padding:12px 0}
+      .page-hero{min-height:760px}.hero-grid{width:calc(100% - 30px);padding:108px 0 65px;gap:26px}
+      .hero-content h1{font-size:clamp(2.75rem,13vw,4.8rem)}.hero-content p{font-size:.95rem;margin-top:18px}
+      .hero-actions{display:grid;grid-template-columns:1fr;margin-top:25px}.hero-actions .btn{width:100%}
+      .hero-scroll{display:none}
+      .filter-shell{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.filter-btn{width:100%;padding:11px 8px;font-size:.76rem}
+      .project-card.featured,.project-card.secondary{grid-column:span 12;min-height:500px}.project-content{padding:24px}.project-content h3{font-size:1.75rem}.project-facts{display:flex;gap:8px}.project-fact{min-height:33px;font-size:.68rem;white-space:normal}
+      .case-visual{min-height:360px}.case-details{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.case-detail{padding:13px}.case-detail strong{font-size:.8rem;overflow-wrap:anywhere}.case-content h3{font-size:2.2rem}
+      .initiative-card{min-height:auto;padding:26px}.metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.metric-card{padding:19px 15px}.metric-card strong{font-size:1.55rem}.metric-card span{font-size:.72rem}.metric-icon{margin-bottom:14px}
+      .delivery-wrap{gap:35px}.delivery-path{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.delivery-path::before{display:none}.delivery-item{grid-template-columns:1fr;align-items:start;gap:8px;padding:12px}.delivery-item-number{width:38px;height:38px;border-radius:11px}.delivery-item strong{font-size:.8rem}.delivery-item span{font-size:.7rem;line-height:1.5}
+      .cta-section{padding:72px 0}.cta-wrap{gap:28px}.cta-actions{width:100%;display:grid;grid-template-columns:1fr}.cta-actions .btn{width:100%}
+      .footer-top{grid-template-columns:repeat(2,minmax(0,1fr));gap:35px 22px}.footer-col:last-child{grid-column:span 2}.footer-bottom{flex-direction:column}.footer-bottom-links{flex-wrap:wrap}
+    }
+    @media (max-width:480px){
+      .brand-text span{display:none}.brand-mark{width:39px;height:39px}.mobile-menu{width:min(355px,92vw)}.page-hero{min-height:750px}
+      .hero-content p{font-size:.9rem}
+      .project-card,.project-card.featured,.project-card.secondary{min-height:460px}.case-meta{display:flex;flex-wrap:wrap}.case-meta span{width:auto;max-width:100%;font-size:.64rem}
+      .case-visual-bottom{flex-direction:column;align-items:flex-start}.case-visual-location{text-align:left}.case-details{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .filter-shell{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-top{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-col:last-child{grid-column:span 2}
+    }
+    /* Services-page navbar and hero behavior across tablet and phone sizes */
+    @media(max-width:1024px){
+      .nav-links,.navbar .nav-cta{display:none}
+      .nav-toggle{display:flex}
+      .services-hero,.services-hero-inner{min-height:800px}
+      .services-hero-inner{align-items:flex-start}
+      .services-hero-copy{width:100%;padding:120px 0 60px}
+    }
+    @media(max-width:640px){
+      .navbar{padding:18px 0}
+      .navbar .container{width:min(var(--container),calc(100% - 32px))}
+      .navbar .brand-name{font-size:15px}
+      .navbar .brand-sub{font-size:7px}
+      .services-hero{min-height:680px}
+      .services-hero-inner{width:min(100% - 32px,var(--container));min-height:680px;align-items:flex-start}
+      .services-hero-copy{width:100%;padding:105px 0 45px}
+      .services-hero-kicker{font-size:8px}
+      .services-hero h1{font-size:clamp(43px,13vw,64px)}
+      .services-hero-intro{font-size:14px;line-height:1.65}
+      .services-hero-actions{display:grid;grid-template-columns:1fr;width:100%}
+      .services-hero-actions .btn{width:100%}
+    }
+    @media(max-width:430px){
+      .navbar .brand-sub{display:none}
+      .services-hero-copy{padding-top:105px}
+      .services-hero h1{font-size:clamp(41px,14vw,58px)}
+    }
+
+  </style>
+</head>
+<body>
+  <!-- NAVBAR — matched to the Services page -->
+  <header class="navbar">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand"><div class="brand-mark"><i class="fa-solid fa-compass-drafting"></i></div><div class="brand-copy"><span class="brand-name">KAOTECH</span><span class="brand-sub">Design &amp; Consultancy Limited</span></div></a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="service.html">Services</a><a href="project.html" class="active">Projects</a><a href="contact.html">Contact Us</a>
+      </nav>
+      <a href="contact.html" class="nav-cta">Discuss your project <i class="fa-solid fa-arrow-right"></i></a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <div class="mobile-menu-top"><div class="mobile-brand"><div class="mobile-brand-mark"><i class="fa-solid fa-compass-drafting"></i></div><div><strong>KAOTECH</strong><small>Design &amp; Consultancy Limited</small></div></div><button class="mobile-close" id="mobileClose" type="button" aria-label="Close navigation"><i class="fa-solid fa-xmark"></i></button></div>
+    <nav class="mobile-links"><a href="index.html"><span>Home</span><i class="fa-solid fa-arrow-right"></i></a><a href="about.html"><span>About</span><i class="fa-solid fa-arrow-right"></i></a><a href="service.html"><span>Services</span><i class="fa-solid fa-arrow-right"></i></a><a href="project.html" class="active"><span>Projects</span><i class="fa-solid fa-arrow-right"></i></a><a href="contact.html"><span>Contact Us</span><i class="fa-solid fa-arrow-right"></i></a></nav>
+    <div class="mobile-menu-bottom"><p>Engineering design, regulatory approval and project management for fuel, water and energy infrastructure.</p><a href="contact.html">Discuss your project <i class="fa-solid fa-arrow-right"></i></a></div>
+  </aside>
+
+  <!-- HERO -->
+  <section class="services-hero">
+    <div class="services-hero-bg"></div>
+    <div class="services-hero-inner">
+      <div class="services-hero-copy reveal visible">
+        <div class="services-hero-kicker"><span></span>Projects &amp; Case Studies</div>
+        <h1>Engineering outcomes that can be <span>measured.</span></h1>
+        <p class="services-hero-intro">Selected Kaotech project experience across fuel infrastructure, water treatment and storage — supported by disciplined design, approvals, automation and technical supervision.</p>
+        <div class="services-hero-actions">
+          <a href="#portfolio" class="btn btn-primary">Explore projects <i class="fa-solid fa-arrow-down"></i></a>
+          <a href="contact.html" class="btn btn-outline-light">Discuss your project <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section portfolio-intro" id="portfolio"><div class="container"><div class="intro-grid">
+    <div class="intro-title reveal"><span class="section-kicker">Selected Experience</span><h2>From technical brief to operating asset.</h2></div>
+    <div class="intro-copy reveal">
+      <p>Kaotech’s project work brings design, regulatory approval, equipment specification, automation and project supervision together around the needs of the asset and its operator.</p>
+      <p>The portfolio below highlights three delivered projects from the company profile: a modular fuel station deployment in Lagos, an industrial water treatment plant in Ogun State, and a tank farm upgrade and automation project in Port Harcourt.</p>
+      <p>Alongside delivered work, Kaotech is developing initiatives focused on smart sanitation and connected fuel management, extending the company’s engineering model into digitally enabled infrastructure.</p>
+    </div>
+  </div></div></section>
+
+  <!-- FILTER -->
+  <section class="section-sm project-filter-section"><div class="container"><div class="filter-shell reveal">
+    <button class="filter-btn active" data-filter="all">All Projects</button><button class="filter-btn" data-filter="fuel">Fuel Infrastructure</button><button class="filter-btn" data-filter="water">Water</button><button class="filter-btn" data-filter="storage">Storage</button><button class="filter-btn" data-filter="initiative">Current Initiatives</button>
+  </div></div></section>
+
+  <!-- PROJECT CARDS -->
+  <section class="section-sm projects-section"><div class="container">
+    <div class="section-head"><div class="section-intro reveal"><span class="section-kicker">Project Portfolio</span><h2>Three delivered projects. One disciplined approach.</h2><p>A closer look at selected engineering scope, locations and measurable project outcomes.</p></div><a href="contact.html" class="btn btn-outline reveal">Start a project <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="projects-grid" id="projectsGrid">
+      <article class="project-card featured reveal project-item" data-category="fuel" data-target="project01"><div class="project-media"></div><div class="project-overlay"></div><div class="project-content"><span class="project-tag"><i class="fa-solid fa-gas-pump"></i> Project 01 · Fuel</span><h3>Modular Fuel Station Deployment</h3><p>Full design, regulatory approval, equipment specification and construction supervision.</p><div class="project-facts"><span class="project-fact"><i class="fa-solid fa-location-dot"></i> Lagos, Nigeria</span><span class="project-fact"><i class="fa-solid fa-circle-check"></i> 100% regulatory compliance</span><span class="project-fact"><i class="fa-solid fa-satellite-dish"></i> Digital monitoring</span></div></div></article>
+      <article class="project-card secondary reveal project-item" data-category="water" data-target="project02"><div class="project-media"></div><div class="project-overlay"></div><div class="project-content"><span class="project-tag"><i class="fa-solid fa-droplet"></i> Project 02 · Water</span><h3>Industrial Water Treatment Plant</h3><p>Water treatment design, pump sizing, automation and commissioning.</p><div class="project-facts"><span class="project-fact"><i class="fa-solid fa-location-dot"></i> Ogun State</span><span class="project-fact"><i class="fa-solid fa-arrow-down"></i> 40% less water waste</span></div></div></article>
+      <article class="project-card secondary reveal project-item" data-category="storage" data-target="project03"><div class="project-media"></div><div class="project-overlay"></div><div class="project-content"><span class="project-tag"><i class="fa-solid fa-database"></i> Project 03 · Storage</span><h3>Tank Farm Upgrade & Automation</h3><p>Tank redesign, P&amp;ID development, fire system upgrade and automation integration.</p><div class="project-facts"><span class="project-fact"><i class="fa-solid fa-location-dot"></i> Port Harcourt</span><span class="project-fact"><i class="fa-solid fa-chart-line"></i> Digital tank monitoring</span></div></div></article>
+    </div>
+  </div></section>
+
+  <!-- DETAILED CASE STUDIES -->
+  <section class="section case-studies"><div class="container">
+    <article class="case-study reveal" id="project01"><div class="case-grid">
+      <div class="case-visual"><div class="case-visual-image"></div><span class="case-number">Case Study 01 / Fuel</span><div class="case-visual-bottom"><div class="case-visual-title">Modular Fuel Station Deployment</div><div class="case-visual-location"><i class="fa-solid fa-location-dot"></i> Lagos, Nigeria</div></div></div>
+      <div class="case-content"><div class="case-meta"><span><i class="fa-solid fa-gas-pump"></i> Fuel Infrastructure</span><span><i class="fa-solid fa-calendar"></i> Year to be confirmed</span></div><h3>Modular Fuel Station Deployment</h3><p class="case-lead">A full engineering and delivery scope covering design, regulatory approval, equipment specification and construction supervision for a private oil &amp; gas operator in Lagos, Nigeria.</p>
+        <div class="case-details"><div class="case-detail"><span class="case-detail-label">Client</span><strong>Private oil &amp; gas operator</strong></div><div class="case-detail"><span class="case-detail-label">Location</span><strong>Lagos, Nigeria</strong></div><div class="case-detail"><span class="case-detail-label">Year</span><strong>To be confirmed</strong></div><div class="case-detail"><span class="case-detail-label">Scope</span><strong>Design · Approval · Equipment · Supervision</strong></div></div>
+        <div class="case-highlight-box"><strong>Project Highlights</strong><div class="case-highlights"><div><i class="fa-solid fa-circle-check"></i><span>100% regulatory compliance.</span></div><div><i class="fa-solid fa-circle-check"></i><span>Optimised layout reducing operational risk.</span></div><div><i class="fa-solid fa-circle-check"></i><span>Integrated digital monitoring system.</span></div></div></div>
+      </div>
+    </div></article>
+    <article class="case-study reveal" id="project02"><div class="case-grid">
+      <div class="case-visual"><div class="case-visual-image"></div><span class="case-number">Case Study 02 / Water</span><div class="case-visual-bottom"><div class="case-visual-title">Industrial Water Treatment Plant</div><div class="case-visual-location"><i class="fa-solid fa-location-dot"></i> Ogun State, Nigeria</div></div></div>
+      <div class="case-content"><div class="case-meta"><span><i class="fa-solid fa-droplet"></i> Water Infrastructure</span><span><i class="fa-solid fa-calendar"></i> Year to be confirmed</span></div><h3>Industrial Water Treatment Plant</h3><p class="case-lead">Water treatment design, pump sizing, automation and commissioning for a manufacturing facility in Ogun State, focused on water efficiency, operational reliability and environmental standards.</p>
+        <div class="case-details"><div class="case-detail"><span class="case-detail-label">Client</span><strong>Manufacturing facility</strong></div><div class="case-detail"><span class="case-detail-label">Location</span><strong>Ogun State, Nigeria</strong></div><div class="case-detail"><span class="case-detail-label">Year</span><strong>To be confirmed</strong></div><div class="case-detail"><span class="case-detail-label">Scope</span><strong>Treatment · Pumping · Automation · Commissioning</strong></div></div>
+        <div class="case-highlight-box"><strong>Project Highlights</strong><div class="case-highlights"><div><i class="fa-solid fa-circle-check"></i><span>40% reduction in water waste.</span></div><div><i class="fa-solid fa-circle-check"></i><span>Improved operational reliability.</span></div><div><i class="fa-solid fa-circle-check"></i><span>Compliance with environmental standards.</span></div></div></div>
+      </div>
+    </div></article>
+    <article class="case-study reveal" id="project03"><div class="case-grid">
+      <div class="case-visual"><div class="case-visual-image"></div><span class="case-number">Case Study 03 / Storage</span><div class="case-visual-bottom"><div class="case-visual-title">Tank Farm Upgrade &amp; Automation</div><div class="case-visual-location"><i class="fa-solid fa-location-dot"></i> Port Harcourt, Nigeria</div></div></div>
+      <div class="case-content"><div class="case-meta"><span><i class="fa-solid fa-database"></i> Storage Infrastructure</span><span><i class="fa-solid fa-calendar"></i> Year to be confirmed</span></div><h3>Tank Farm Upgrade &amp; Automation</h3><p class="case-lead">An upgrade and automation scope for a midstream operator, combining tank redesign, P&amp;ID development, fire system upgrades and automation integration to improve facility safety, handling and visibility.</p>
+        <div class="case-details"><div class="case-detail"><span class="case-detail-label">Client</span><strong>Midstream operator</strong></div><div class="case-detail"><span class="case-detail-label">Location</span><strong>Port Harcourt, Nigeria</strong></div><div class="case-detail"><span class="case-detail-label">Year</span><strong>To be confirmed</strong></div><div class="case-detail"><span class="case-detail-label">Scope</span><strong>Tank redesign · P&amp;IDs · Fire upgrade · Automation</strong></div></div>
+        <div class="case-highlight-box"><strong>Project Highlights</strong><div class="case-highlights"><div><i class="fa-solid fa-circle-check"></i><span>Enhanced safety compliance.</span></div><div><i class="fa-solid fa-circle-check"></i><span>Improved product handling efficiency.</span></div><div><i class="fa-solid fa-circle-check"></i><span>Digital monitoring of tank levels.</span></div></div></div>
+      </div>
+    </div></article>
+  </div></section>
+
+  <!-- CURRENT INITIATIVES -->
+  <section class="section initiatives"><div class="container">
+    <div class="initiative-head reveal"><span class="section-kicker">Current Initiatives</span><h2>Building the next layer of connected infrastructure.</h2><p>Kaotech is extending its engineering expertise into technology-enabled systems designed to improve visibility, sanitation outcomes and asset operations.</p></div>
+    <div class="initiative-grid">
+      <article class="initiative-card reveal project-item" data-category="initiative"><div class="initiative-icon"><i class="fa-solid fa-water"></i></div><span class="initiative-label">Initiative · Lagos</span><h3>Smart Septic Sewage System</h3><p>A proposed three-stage IoT system connecting septic tank monitoring, tracked collection and resource-recovery treatment on one platform.</p><div class="initiative-status"><i class="fa-solid fa-circle"></i> Proposed / Development Initiative</div><div class="initiative-flow"><span><i class="fa-solid fa-sensor-on"></i> Tank monitoring</span><span><i class="fa-solid fa-location-dot"></i> Tracked collection</span><span><i class="fa-solid fa-recycle"></i> Resource recovery</span></div></article>
+      <article class="initiative-card reveal project-item" data-category="initiative"><div class="initiative-icon"><i class="fa-solid fa-gauge-high"></i></div><span class="initiative-label">Initiative · Digital Energy</span><h3>FuelSync Pilot Programme</h3><p>The FuelSync digital fuel management platform connects, collects, stores, analyses and visualises fuel pump and storage tank telemetry through web and mobile interfaces.</p><div class="initiative-status"><i class="fa-solid fa-circle"></i> MVP launch &amp; pilot programme · 2026</div><div class="initiative-flow"><span><i class="fa-solid fa-chart-line"></i> Real-time monitoring</span><span><i class="fa-solid fa-bell"></i> Predictive alerts</span><span><i class="fa-solid fa-mobile-screen"></i> Mobile access</span></div></article>
+    </div>
+  </div></section>
+
+  <!-- PROJECT METRICS -->
+  <section class="section metrics-section"><div class="container">
+    <div class="section-intro reveal"><span class="section-kicker">Portfolio At A Glance</span><h2>A project approach built around evidence.</h2><p>Kaotech’s wider portfolio is supported by engineering leadership, regulatory knowledge and data-driven decision-making.</p></div>
+    <div class="metrics-grid" style="margin-top:44px;">
+      <article class="metric-card reveal"><div class="metric-icon"><i class="fa-solid fa-diagram-project"></i></div><strong>40+</strong><span>Engineering projects delivered to date</span></article>
+      <article class="metric-card reveal"><div class="metric-icon"><i class="fa-solid fa-location-crosshairs"></i></div><strong>150+</strong><span>Fuel retail sites analysed in the site-viability framework</span></article>
+      <article class="metric-card reveal"><div class="metric-icon"><i class="fa-solid fa-chart-line"></i></div><strong>0.72–0.78</strong><span>NCC cell tower density proxy R² referenced in the viability model</span></article>
+      <article class="metric-card reveal"><div class="metric-icon"><i class="fa-solid fa-earth-africa"></i></div><strong>UK + Africa</strong><span>Engineering leadership and delivery experience</span></article>
+    </div>
+  </div></section>
+
+  <!-- DELIVERY CONNECTION -->
+  <section class="section delivery-connection"><div class="container"><div class="delivery-wrap">
+    <div class="delivery-copy reveal"><span class="section-kicker">How Projects Move</span><h2>Every project is connected from brief to handover.</h2><p>Kaotech’s delivery model links project definition, assessment, design, approvals, procurement, construction supervision, testing and ongoing support into one accountable process.</p><a href="service.html" class="btn btn-primary" style="margin-top:28px;">Explore our delivery model <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="delivery-path">
+      <div class="delivery-item reveal"><div class="delivery-item-number">01</div><div><strong>Briefing &amp; Scoping</strong><span>Define requirements, outcomes, budget and site context.</span></div></div>
+      <div class="delivery-item reveal"><div class="delivery-item-number">02</div><div><strong>Assessment</strong><span>Verify site conditions, risks, viability and constraints.</span></div></div>
+      <div class="delivery-item reveal"><div class="delivery-item-number">03</div><div><strong>Concept &amp; Detailed Design</strong><span>Develop coordinated engineering and technical documentation.</span></div></div>
+      <div class="delivery-item reveal"><div class="delivery-item-number">04</div><div><strong>Regulatory Approvals</strong><span>Coordinate approvals and environmental requirements.</span></div></div>
+      <div class="delivery-item reveal"><div class="delivery-item-number">05</div><div><strong>Procurement</strong><span>Specify, source and coordinate required equipment.</span></div></div>
+      <div class="delivery-item reveal"><div class="delivery-item-number">06</div><div><strong>Construction Supervision</strong><span>Monitor construction against approved designs and requirements.</span></div></div>
+      <div class="delivery-item reveal"><div class="delivery-item-number">07</div><div><strong>Testing &amp; Commissioning</strong><span>Support testing, inspection, handover and readiness.</span></div></div>
+      <div class="delivery-item reveal"><div class="delivery-item-number">08</div><div><strong>Operate &amp; Support</strong><span>Training, support and digital monitoring where applicable.</span></div></div>
+    </div>
+  </div></div></section>
+
+  <!-- CTA -->
+  <section class="cta-section"><div class="container"><div class="cta-wrap">
+    <div class="cta-copy reveal"><span class="section-kicker">Start Your Next Project</span><h2>Bring us the engineering challenge.</h2><p>From fuel stations and tank farms to water treatment and energy infrastructure, Kaotech helps turn complex technical requirements into deliverable project outcomes.</p></div>
+    <div class="cta-actions reveal"><a href="contact.html" class="btn btn-primary">Discuss your project <i class="fa-solid fa-arrow-right"></i></a><a href="service.html" class="btn btn-outline-dark">View services <i class="fa-solid fa-arrow-right"></i></a></div>
+  </div></div></section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer"><div class="container"><div class="footer-top">
+    <div class="footer-brand"><a href="index.html" class="brand"><div class="brand-mark">K</div><div class="brand-text"><strong>KAOTECH</strong><span>Design &amp; Consultancy</span></div></a><p>Engineering design, regulatory approval and project management for fuel, water and energy infrastructure.</p></div>
+    <div class="footer-col"><h4>Navigation</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="service.html">Services</a><a href="project.html">Projects</a><a href="contact.html">Contact Us</a></div>
+    <div class="footer-col"><h4>Services</h4><a href="service.html#fuel">Fuel Station Design</a><a href="service.html#tank-farm">Tank Farm Engineering</a><a href="service.html#water">Water Treatment</a><a href="service.html#energy">Energy &amp; Utilities</a><a href="service.html#project-management">Project Management</a></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-contact">
+      <div><i class="fa-solid fa-location-dot"></i><span>Level 30, The Leadenhall Building,<br />122 Leadenhall Street,<br />London EC3V 4AB, UK</span></div>
+      <div><i class="fa-solid fa-location-dot"></i><span>16 Toyin Street,<br />Ikeja, Lagos, Nigeria</span></div>
+      <div><i class="fa-solid fa-phone"></i><span>+44 7884 675998</span></div>
+      <div><i class="fa-solid fa-envelope"></i><span>info@kaotechdesigns.com</span></div>
+    </div></div>
+  </div><div class="footer-bottom"><div>© 2026 Kaotech Design &amp; Consultancy Limited. All rights reserved.</div><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div></div></footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const navToggle = document.getElementById("navToggle");
+      const mobileClose = document.getElementById("mobileClose");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuOverlay = document.getElementById("menuOverlay");
+      const mobileLinks = document.querySelectorAll(".mobile-links a");
+
+      const openMenu = () => {
+        mobileMenu.classList.add("open");
+        menuOverlay.classList.add("open");
+        document.body.classList.add("menu-open");
+        navToggle.setAttribute("aria-expanded", "true");
+        mobileMenu.setAttribute("aria-hidden", "false");
+      };
+      const closeMenu = () => {
+        mobileMenu.classList.remove("open");
+        menuOverlay.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        mobileMenu.setAttribute("aria-hidden", "true");
+      };
+      navToggle.addEventListener("click", openMenu);
+      mobileClose.addEventListener("click", closeMenu);
+      menuOverlay.addEventListener("click", closeMenu);
+      mobileLinks.forEach(link => link.addEventListener("click", closeMenu));
+      document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
+
+      const revealItems = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12 });
+        revealItems.forEach(item => revealObserver.observe(item));
+      } else {
+        revealItems.forEach(item => item.classList.add("show"));
+      }
+
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const projectItems = document.querySelectorAll(".project-item");
+      filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.filter;
+          filterButtons.forEach(btn => btn.classList.remove("active"));
+          button.classList.add("active");
+          projectItems.forEach(item => {
+            const category = item.dataset.category;
+            item.classList.toggle("hidden", !(filter === "all" || category === filter));
+          });
+        });
+      });
+
+      const cards = document.querySelectorAll(".project-card[data-target]");
+      cards.forEach(card => {
+        card.addEventListener("click", () => {
+          const target = document.getElementById(card.dataset.target);
+          if (!target) return;
+          const targetPosition = target.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: targetPosition, behavior: "smooth" });
+        });
+      });
+
+      document.querySelectorAll(".hero-rail .reveal, .metrics-grid .reveal, .delivery-path .reveal")
+        .forEach((item, index) => { item.style.transitionDelay = `${index * 80}ms`; });
+    });
+  </script>
+</body>
+</html>
