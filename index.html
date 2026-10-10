@@ -2701,14 +2701,14 @@
 
     /* =========================================================
        PHONE CARD & LIST LAYOUTS
-       Keep repeated cards and bordered list items in two columns.
+       Keep compact lists in columns where appropriate.
+       Standards and market sections are stacked below.
     ========================================================== */
     @media (max-width: 640px) {
       .problem-list,
       .gap-result,
       .about-points,
-      .why-list,
-      .technology-list {
+      .why-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -2820,6 +2820,48 @@
       .quality-point {
         padding: 8px;
         font-size: 10px;
+      }
+    }
+
+
+
+    /* =========================================================
+       MOBILE: STACK STANDARDS & MARKETS VERTICALLY
+       Each bordered tag and location label uses one full-width row.
+       Desktop and tablet layouts above remain unchanged.
+    ========================================================== */
+    @media (max-width: 640px) {
+      .standards-grid,
+      .markets-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .technology-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .tag-cloud {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .tag {
+        display: block;
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .corridors {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 7px;
+      }
+
+      .corridor {
+        display: block;
+        width: 100%;
+        border-radius: 10px;
       }
     }
 
